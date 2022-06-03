@@ -10,6 +10,7 @@ pipeline{
             steps{
               script{
                   withSonarQubeEnv(credentialsId: 'sonar-token') {
+                      sh 'sudo chmod 666 /var/run/docker.sock'
                       sh 'chmod +x gradlew'
                       sh './gradlew sonarqube'
                   
