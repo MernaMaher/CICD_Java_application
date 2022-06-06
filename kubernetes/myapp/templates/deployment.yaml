@@ -15,7 +15,7 @@ spec:
         {{- include "myapp.selectorLabels" . | nindent 8 }}
     spec:
       imagePullSecrets:
-        - name: reg-secret
+        - name: registr-secret
       containers:
         - name: {{ .Chart.Name }}
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
