@@ -85,9 +85,8 @@ pipeline{
                 script {
                     withCredentials([kubeconfigFile(credentialsId: 'kubernetes-config', variable: 'KUBECONFIG')]) {
                         dir('kubernetes/') {
-                        sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
-                        sh 'chmod u+x ./kubectl'  
-                        sh 'helm upgrade --install --set image.repository="34.122.47.206:8083/springapp" --set image.tag="${VERSION}" myjavaapp myapp/ '
+                         
+                        sh 'sudo helm upgrade --install --set image.repository="34.122.47.206:8083/springapp" --set image.tag="${VERSION}" myjavaapp myapp/ '
                         }
                        }
                 }
